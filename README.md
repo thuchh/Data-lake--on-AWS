@@ -18,7 +18,7 @@ Example of JSON files in song data input path:
 `song_data/A/A/B/TRAABJL12903CDCF1A.json`
 
 
-## connect to Hadoop from local machine:
+## Connect to Hadoop from local machine:
 1. create IAM role
 2. create  pairkey and download it to local machine
 3. create EMR version above 5.25 (to be able to see SparkUI after ETL)
@@ -27,12 +27,12 @@ Example of JSON files in song data input path:
 6. open sparkUI from the EMR web interface
 
 
-## make S3 bucket
+## Make S3 bucket
 input data S3 bucket: `aws s3 mb s3://udacity-dend --profile production`
 output data S3 bucket: `aws s3 mb s3://sparkifi-output --profile production`
 
 
-## copy input to input data bucket
+## Copy input to input data bucket
 copy input song-data.zip to s3://udacity-dend: 
 `aws s3 cp <your local song-data.zip file> s3://sparkifi-output`
 copy input log-data.zip to s3://udacity-dend: 
@@ -41,6 +41,10 @@ copy input etl.py to s3://udacity-dend:
 `aws s3 cp <your local etl.py file> s3://sparkifi-output`
 
 
-## etl the input data
+## Etl the input data
 copy etl file to Hadoop: `aws s3 cp s3://udacity-dend/lower_songs.py .`
 submit to Spark: `spark-submit lower_songs.py`
+
+
+## Final data model
+![data model](https://github.com/thuchh/Data-lake-on-AWS/blob/main/data-model.png)
